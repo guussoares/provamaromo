@@ -1,0 +1,52 @@
+// Ex 12: Strlen (Tamanho da string) [cite: 106, 109]
+int meu_strlen(const char *str) {
+    const char *ptr = str;
+    while (*ptr != '\0') {
+        ptr++;
+    }
+    return ptr - str; // Diferença entre endereço final e inicial
+}
+
+// Ex 13: Strcpy (Copiar string) [cite: 111, 114]
+void meu_strcpy(char *destino, const char *origem) {
+    // Copia enquanto o valor apontado por origem não for \0
+    while ((*destino++ = *origem++)); 
+}
+
+// Ex 14: Encontrar Maior (Retornar Ponteiro) [cite: 116, 117]
+int* encontrarMaior(int *array, int tamanho) {
+    int *maior = array; // Ponteiro aponta para o primeiro
+    for (int i = 1; i < tamanho; i++) {
+        // Usa aritmética (array + i) para acessar elementos
+        if (*(array + i) > *maior) {
+            maior = (array + i);
+        }
+    }
+    return maior;
+}
+
+// Ex 15: Preencher Array com Double [cite: 121, 122]
+void preencherArray(double *array, int tamanho) {
+    double *fim = array + tamanho;
+    for (double *ptr = array; ptr < fim; ptr++) {
+        *ptr = 5.5;
+    }
+}
+
+// Ex 16: Inverter String In-Place [cite: 126, 127]
+void inverterString(char *str) {
+    char *inicio = str;
+    char *fim = str;
+    
+    // Move 'fim' até o último caractere válido
+    while (*fim != '\0') fim++;
+    fim--; // Volta um para sair do \0
+
+    while (inicio < fim) {
+        char temp = *inicio;
+        *inicio = *fim;
+        *fim = temp;
+        inicio++;
+        fim--;
+    }
+}

@@ -1,0 +1,53 @@
+#include <math.h>
+
+// Ex 1: Trocar valores [cite: 50, 52]
+void trocar(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+// Ex 2: Círculo (Área e Perímetro) [cite: 54, 55, 56]
+void calcularCirculo(float raio, float *area, float *perimetro) {
+    *area = 3.14159 * raio * raio;
+    *perimetro = 2 * 3.14159 * raio;
+}
+
+// Ex 3: Min e Max em Array [cite: 60, 61, 63]
+void encontrarMinMaxArray(int *array, int tamanho, int *min, int *max) {
+    *min = array[0];
+    *max = array[0];
+    for(int i = 1; i < tamanho; i++) {
+        if(array[i] < *min) *min = array[i];
+        if(array[i] > *max) *max = array[i];
+    }
+}
+
+// Ex 4: Contar Pares (retorno) e Ímpares (ref) [cite: 65, 66, 68]
+int contarPares(int *array, int tamanho, int *contagemImpares) {
+    int pares = 0;
+    *contagemImpares = 0;
+    for(int i = 0; i < tamanho; i++) {
+        if(array[i] % 2 == 0) {
+            pares++;
+        } else {
+            (*contagemImpares)++;
+        }
+    }
+    return pares;
+}
+
+// Ex 5: Equação de Segundo Grau [cite: 70, 71, 72]
+int calcularRaizes(float a, float b, float c, float *x1, float *x2) {
+    if (a == 0) return 0; // Não é segundo grau
+    float delta = (b * b) - (4 * a * c);
+
+    if (delta < 0) return 0; // Sem raízes reais
+    
+    *x1 = (-b + sqrt(delta)) / (2 * a);
+    
+    if (delta == 0) return 1; // Uma raiz real
+    
+    *x2 = (-b - sqrt(delta)) / (2 * a);
+    return 2; // Duas raízes reais
+}
